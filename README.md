@@ -4,6 +4,10 @@ Página en español, adaptable a PC y celular, construida a partir de los dos Ma
 
 ## Abrir la página
 
+**Página pública para practicar:** <https://dieguitobot.github.io/audita-cisa/>
+
+Funciona en PC y celular sin instalación. Cada compañero conserva su progreso en su propio navegador.
+
 En una PC, abre **index.html** con tu navegador. Para usar una dirección local estable o acceder desde tu celular, ejecuta desde esta carpeta:
 
 ```bash
