@@ -17,7 +17,7 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  async function finish(){await click('finish-confirm');await click('finish');await page.waitForSelector('.result-hero');}
  await page.goto(URL);
  assert.equal(await page.locator('.domain-card').count(),5);
- assert.equal(await page.evaluate(()=>window.STUDY_DATA.questions.length),150);
+ assert.equal(await page.evaluate(()=>window.STUDY_DATA.questions.length),152);
  await page.screenshot({path:path.join(ROOT,'preview-desktop.png'),fullPage:true});
  await click('ep1');await page.waitForSelector('.quiz-card');
  assert.equal(await page.locator('.option').count(),6);
@@ -78,17 +78,17 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  assert.deepEqual(errors,[]);
  // Offline direct-file use is supported: data.js does not depend on fetch.
  const local=await context.newPage();await local.goto('file://'+path.join(ROOT,'index.html'));assert.equal(await local.locator('.domain-card').count(),5);await local.locator('[data-action="ep1"]').click();await local.waitForSelector('.option');assert.equal(await local.locator('.option').count(),6);
- // ISO guide, all ten clause pools, filtering, corrections and backup compatibility.
+ // ISO guide, all eleven clause pools, filtering, corrections and backup compatibility.
  const isoContext=await browser.newContext({viewport:{width:1440,height:1080},reducedMotion:'reduce'});
  const isoPage=await isoContext.newPage();isoPage.on('pageerror',e=>errors.push(e.message));
  await isoPage.goto(URL+'/#iso');
- assert.equal(await isoPage.locator('.clause-card').count(),10);
+ assert.equal(await isoPage.locator('.clause-card').count(),11);
  const pdf=await isoPage.request.get(URL+'/ISO%2027701-2025.pdf');
  assert.equal(pdf.status(),200);assert.match(pdf.headers()['content-type'],/pdf/);
  await isoPage.locator('[data-action="iso-jump"][data-id="10"]').click();
  assert.equal(await isoPage.locator('#clause-10 details').getAttribute('open'),'');
  assert.equal(await isoPage.evaluate(()=>location.hash),'#iso');
- for(let c=1;c<=10;c++){
+ for(let c=1;c<=11;c++){
    await isoPage.goto(URL+'/#iso');
    await isoPage.locator(`[data-action="iso-practice"][data-id="${c}"]`).click();
    if(await isoPage.locator('[data-action="confirm-new"]').count())await isoPage.locator('[data-action="confirm-new"]').click();
@@ -104,7 +104,7 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  await isoPage.locator('[data-action="bookmark"]').click();await isoPage.reload();await isoPage.waitForSelector('.feedback');
  assert.equal(await isoPage.evaluate(id=>JSON.parse(localStorage.getItem('audita.study.v1')).records[id].attempts,iq.id),1);
  await isoPage.goto(URL+'/#banco');await isoPage.locator('[data-action="filter"][data-id="iso"]').click();
- assert.equal(await isoPage.locator('.bank-card').count(),30);
+ assert.equal(await isoPage.locator('.bank-card').count(),32);
  await isoPage.locator('#domain-filter').selectOption('c6');assert.equal(await isoPage.locator('.bank-card').count(),5);
  await isoPage.locator('#search').fill('declaración');assert.equal(await isoPage.locator('.bank-card').count(),1);
  await isoPage.goto(URL+'/#iso');assert.equal(await isoPage.locator('.iso-progress [role="progressbar"]').getAttribute('aria-valuenow'),'1');
@@ -116,7 +116,7 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  await isoPage.goto(URL+'/#iso');await isoPage.locator('[data-action="configure"]').click();
  await isoPage.locator('#exam-source').selectOption('all');await isoPage.locator('#exam-count').selectOption('all');await isoPage.locator('#exam-time').selectOption('0');
  await isoPage.locator('#exam-form button[type="submit"]').click();await isoPage.locator('[data-action="confirm-new"]').click();await isoPage.waitForSelector('.quiz-card');
- assert.equal(await isoPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')).session.ids.length),150);
+ assert.equal(await isoPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')).session.ids.length),152);
  const fullBackup=await isoPage.evaluate(()=>localStorage.getItem('audita.study.v1'));
  await isoPage.locator('[data-action="settings"]').click();
  await isoPage.locator('#import-file').setInputFiles({name:'all.json',mimeType:'application/json',buffer:Buffer.from(fullBackup)});
@@ -129,8 +129,66 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
    assert.equal(await isoPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  }
  await isoPage.screenshot({path:path.join(ROOT,'preview-iso-mobile.png'),fullPage:true});
- await local.goto('file://'+path.join(ROOT,'index.html')+'#iso');assert.equal(await local.locator('.clause-card').count(),10);
+ // Long scenario and five-answer key remain usable on a narrow mobile screen.
+ await isoPage.goto(URL+'/#banco');await isoPage.locator('#search').fill('');
+ await isoPage.locator('[data-action="one"][data-id="iso-6-2"]').click();
+ await isoPage.locator('[data-action="confirm-new"]').click();
+ await isoPage.waitForSelector('.quiz-card');
+ const riskAnswers=await isoPage.evaluate(()=>window.STUDY_DATA.questions.find(q=>q.id==='iso-6-2').answers);
+ assert.equal(riskAnswers.length,5);
+ for(const value of riskAnswers)await isoPage.locator(`[data-action="option"][data-value="${value}"]`).click();
+ await isoPage.locator('[data-action="check"]').click();
+ assert.equal(await isoPage.locator('.feedback.incorrect').count(),0);
+ assert.equal(await isoPage.locator('.option.correct').count(),5);
+ assert.equal(await isoPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ await local.goto('file://'+path.join(ROOT,'index.html')+'#iso');assert.equal(await local.locator('.clause-card').count(),11);
+ // Revision 1 grades must not be applied to rewritten ISO questions, on load or import.
+ const migrationContext=await browser.newContext();
+ const migrationPage=await migrationContext.newPage();
+ migrationPage.on('pageerror',e=>errors.push(e.message));
+ await migrationPage.goto(URL+'/#iso');
+ const legacySession={title:'ISO anterior',mode:'practice',ids:['iso-1-1'],index:0,
+   responses:{'iso-1-1':{selected:[0,1,4],graded:true,correct:true}},
+   orders:{'iso-1-1':[0,1,2,3,4,5]},started:Date.now(),deadline:null};
+ const legacyRecord={attempts:1,correct:1,streak:1,lastCorrect:true,lastAt:Date.now()};
+ const legacy={version:1,records:{'ep1-1':legacyRecord,'iso-1-1':legacyRecord},
+   bookmarks:['ep1-1','iso-1-1'],history:[{title:'ISO anterior',mode:'practice',date:Date.now(),correct:1,total:1}],
+   session:legacySession,lastResult:legacySession};
+ await migrationPage.evaluate(s=>localStorage.setItem('audita.study.v1',JSON.stringify(s)),legacy);
+ await migrationPage.reload();
+ assert.equal(await migrationPage.locator('.iso-progress [role="progressbar"]').getAttribute('aria-valuenow'),'0');
+ await migrationPage.locator('[data-action="iso-practice"][data-id="1"]').click();
+ await migrationPage.waitForSelector('.quiz-card');
+ assert.equal(await migrationPage.locator('.feedback').count(),0);
+ const migrated=await migrationPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')));
+ assert.equal(migrated.isoRevision,2);
+ assert.deepEqual(migrated.records,{'ep1-1':legacyRecord});
+ assert.deepEqual(migrated.bookmarks,legacy.bookmarks);
+ assert.deepEqual(migrated.history,legacy.history);
+ assert.equal(migrated.lastResult,null);
+ assert.deepEqual(migrated.previousIso.records,{'iso-1-1':legacyRecord});
+ assert.deepEqual(migrated.previousIso.session,legacySession);
+ await migrationPage.locator('[data-action="settings"]').click();
+ await migrationPage.locator('#import-file').setInputFiles({name:'legacy.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(legacy))});
+ await migrationPage.locator('[data-action="confirm-import"]').click();
+ const imported=await migrationPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')));
+ assert.equal(imported.isoRevision,2);
+ assert.deepEqual(imported.records,{'ep1-1':legacyRecord});
+ assert.deepEqual(imported.bookmarks,legacy.bookmarks);
+ assert.deepEqual(imported.history,legacy.history);
+ assert.equal(imported.session,null);assert.equal(imported.lastResult,null);
+ assert.deepEqual(imported.previousIso,migrated.previousIso);
+ // A CISA-only pending session remains resumable after the same migration.
+ const cisaSession={...legacySession,title:'EP1',ids:['ep1-1'],responses:{},orders:{'ep1-1':[0,1,2,3,4,5]}};
+ await migrationPage.evaluate(s=>localStorage.setItem('audita.study.v1',JSON.stringify(s)),{...legacy,session:cisaSession,lastResult:null});
+ await migrationPage.goto(URL+'/#practica');await migrationPage.reload();
+ assert.equal(await migrationPage.locator('.option').count(),6);
+ await migrationPage.locator('[data-action="option"][data-value="0"]').click();
+ const cisaMigrated=await migrationPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')));
+ assert.deepEqual(cisaMigrated.session.ids,['ep1-1']);
+ assert.deepEqual(cisaMigrated.records,{'ep1-1':legacyRecord});
+ await migrationContext.close();
  assert.deepEqual(errors,[]);
  await browser.close();
- console.log('PASS: 150 preguntas; corrección exacta; omisiones; claves EP1; mezcla de opciones; guardado tras recarga; repaso; guardadas; búsqueda y filtros; simulacro y revisión; entrega por tiempo; exportación/importación y validación; reinicio; 1440/390/320 px; uso directo sin servidor; sin errores de JavaScript.');
+ console.log('PASS: 152 preguntas; corrección exacta; omisiones; claves EP1; mezcla de opciones; guardado tras recarga; repaso; guardadas; búsqueda y filtros; simulacro y revisión; entrega por tiempo; exportación/importación y validación; reinicio; 1440/390/320 px; uso directo sin servidor; 11 cláusulas ISO; escenario móvil con cinco respuestas; migración de progreso y respaldos ISO anteriores; sin errores de JavaScript.');
 })().catch(e=>{console.error(e);process.exit(1);});

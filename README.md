@@ -1,6 +1,6 @@
 # Audita · práctica de Auditoría de Sistemas
 
-Página en español, adaptable a PC y celular, construida a partir de los dos Markdown y del PDF ISO/IEC 27701:2025 de esta carpeta. No necesita cuentas, dependencias ni servicios externos para funcionar.
+Página en español, adaptable a PC y celular, construida a partir de los materiales Markdown y del PDF ISO/IEC 27701:2025 de esta carpeta. No necesita cuentas, dependencias ni servicios externos para funcionar.
 
 ## Abrir la página
 
@@ -27,8 +27,8 @@ El servidor comparte el contenido de esta carpeta con los equipos que puedan acc
 | EP1 original | 30 | Enunciados, opciones, claves y sustentos del archivo proporcionado |
 | Nuevas por dominio | 50 | 10 por cada uno de los cinco dominios, inspiradas en sus autoevaluaciones |
 | Casos prácticos | 40 | 8 preguntas nuevas por cada uno de los cinco escenarios del manual |
-| ISO/IEC 27701:2025 | 30 | Preguntas originales sobre las cláusulas 1–10 del PDF proporcionado |
-| **Total** | **150** | Todas con seis opciones y entre dos y cinco respuestas correctas |
+| ISO/IEC 27701:2025 | 32 | Preguntas de análisis sobre prólogo, introducción y cláusulas 1–11; nivel contrastado con el nuevo cuestionario |
+| **Total** | **152** | Todas con seis opciones y entre dos y cinco respuestas correctas |
 
 Los ejercicios nuevos son material de estudio original, no preguntas oficiales. El manual utiliza también preguntas de respuesta única y preguntas abiertas; las nuevas se adaptan al formato de selección múltiple del EP1. Cada pregunta indica su fuente temática y página impresa de referencia. Los casos originales contienen 8, 8, 4, 4 y 5 preguntas respectivamente; se amplían a ocho ejercicios nuevos por caso.
 
@@ -38,11 +38,11 @@ La pregunta 2 del EP1 no contiene una línea explícita de clave: se deduce A/B/
 
 **Apartado público:** <https://dieguitobot.github.io/audita-cisa/#iso>
 
-Incluye las diez cláusulas: alcance; referencias normativas; términos, definiciones y abreviaturas; contexto; liderazgo; planificación; apoyo; operación; evaluación del desempeño; y mejora. Cada cláusula tiene resumen, conceptos clave, ejemplo de estudio, progreso, preguntas y enlace a sus páginas del PDF. Los resúmenes en español no son una traducción oficial. Los anexos solo se mencionan en las remisiones de las cláusulas estudiadas.
+Incluye las once cláusulas: alcance; referencias normativas; términos, definiciones y abreviaturas; contexto; liderazgo; planificación; apoyo; operación; evaluación del desempeño; mejora; e información adicional sobre los anexos. Cada cláusula tiene resumen, conceptos clave, ejemplo de estudio, progreso, preguntas y enlace a sus páginas del PDF. Los resúmenes en español no son una traducción oficial. La cláusula 11 identifica los mapeos de los anexos C–F; no se evalúa el contenido detallado de los anexos.
 
-Las 30 preguntas nuevas se distribuyen en 2, 2, 3, 4, 3, 5, 4, 2, 3 y 2 por cláusula, respectivamente. Se integran en búsquedas, filtros, guardadas, repaso de errores, simulacros y respaldos. Las preguntas ISO usan identificadores propios y no se asignan a dominios CISA. Se conserva la clave de almacenamiento y los identificadores anteriores para mantener el progreso existente.
+Las 32 preguntas se distribuyen en 2, 2, 3, 4, 3, 5, 4, 2, 3, 2 y 2 por cláusula, respectivamente. Se reformularon las 30 anteriores tomando `Cuestionario_ISO_27701_2025_Clausulas_1-11.md` como referencia de nivel: casos de auditoría, distinciones entre requisitos, evidencia y conceptos, distractores plausibles y sustentos que explican los errores. Se conservan seis opciones y entre dos y cinco correctas, incluyendo ejercicios con cada una de esas cantidades. El prólogo y la introducción se integran en las primeras cláusulas. Se integran en búsquedas, filtros, guardadas, repaso de errores, simulacros y respaldos. Las preguntas ISO usan identificadores propios y no se asignan a dominios CISA. Se conserva la clave de almacenamiento y los identificadores. La revisión ISO 2 reinicia los registros de respuestas ISO de la versión anterior y descarta la sesión pendiente o el último resultado si incluyen ISO, para no aplicar claves nuevas a respuestas antiguas. Los registros y sesiones ISO retirados se archivan en `previousIso` dentro del estado local y los respaldos, sin reutilizarlos en la corrección. Conserva registros CISA, guardadas e historial de sesiones completadas; la misma migración se aplica al importar respaldos anteriores.
 
-Fuente: `ISO 27701-2025.pdf`, páginas impresas 1–14 (páginas 7–20 del archivo). La edición 2025 presenta el PIMS como norma de sistema de gestión independiente; la cláusula 2 referencia ISO/IEC 29100. Los ejercicios son material original de estudio, no preguntas oficiales.
+Fuente: `ISO 27701-2025.pdf`, prólogo, introducción y páginas impresas 1–14 (cláusulas en páginas 7–20 del archivo). La edición 2025 presenta el PIMS como norma de sistema de gestión independiente; la cláusula 2 referencia ISO/IEC 29100. Los ejercicios son material original de estudio, no preguntas oficiales.
 
 ## Formas de estudiar
 
@@ -63,10 +63,11 @@ Los datos permanecen en el almacenamiento local del navegador; no hay sincroniza
 - `data.js`: banco generado y listo para abrir sin `fetch` ni servidor obligatorio.
 - `scripts/questions.txt`: 90 ejercicios originales editables. Campos separados por `~`; opciones por `|`; clave con letras A–F.
 - `scripts/iso27701.json`: guía por cláusula y referencias de página del PDF.
-- `scripts/iso_questions.txt`: 30 ejercicios originales ISO, con referencia, seis opciones, clave y explicación.
+- `scripts/iso_questions.txt`: 32 ejercicios ISO revisados, con referencia, seis opciones, clave y explicación de aciertos y distractores.
 - `scripts/build_bank.py`: extrae el EP1, incorpora las preguntas nuevas y valida cantidades y estructura.
 - `scripts/smoke.cjs`: pruebas de interacción en navegador (requieren Playwright).
-- Los dos Markdown originales permanecen como material de referencia.
+- `Cuestionario_ISO_27701_2025_Clausulas_1-11.md`: referencia aportada para elevar el nivel y completar la cobertura; se conserva sin modificaciones.
+- Los dos Markdown anteriores permanecen como material de referencia.
 
 Para reconstruir el banco:
 

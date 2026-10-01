@@ -58,16 +58,18 @@ for line in (ROOT/'scripts/questions.txt').read_text().splitlines():
 assert len(questions)==120,len(questions)
 assert len({q['id'] for q in questions})==120
 iso = json.loads((ROOT/'scripts/iso27701.json').read_text())
-assert [c['id'] for c in iso['clauses']] == list(range(1, 11))
+assert [c['id'] for c in iso['clauses']] == list(range(1, 12))
 clause_by_id = {c['id']: c for c in iso['clauses']}
 for line in (ROOT/'scripts/iso_questions.txt').read_text().splitlines():
  if not line or line.startswith('#'): continue
  clause,num,ref,prompt,opts,key,explanation = line.split('~')
  c = clause_by_id[int(clause)]
- questions.append(dict(id=f'iso-{clause}-{num}',number=int(num),domain=None,clause=c['id'],kind='iso',topic=f"Cláusula {clause} · {c['name']}",prompt=prompt,options=opts.split('|'),answers=[ord(a)-65 for a in key],explanation=explanation,note='Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.',source=f"ISO/IEC 27701:2025 · cláusula {ref} · páginas impresas {c['pages']}. PDF proporcionado.",sourceFile=iso['sourceFile'],sourcePage=c['pdfPage']))
-assert len(questions) == 150
+ questions.append(dict(id=f'iso-{clause}-{num}',number=int(num),domain=None,clause=c['id'],kind='iso',topic=f"Cláusula {clause} · {c['name']}",prompt=prompt,options=opts.split('|'),answers=[ord(a)-65 for a in key],explanation=explanation,note='Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.',source=f"ISO/IEC 27701:2025 · referencias {ref}. PDF proporcionado; enlace al inicio de la cláusula principal {clause}. Nivel y cobertura contrastados con el cuestionario aportado.",sourceFile=iso['sourceFile'],sourcePage=c['pdfPage']))
+assert len(questions) == 152
 assert len({q['id'] for q in questions}) == len(questions)
 assert (ROOT/iso['sourceFile']).is_file()
+assert (ROOT/iso['referenceFile']).is_file()
+assert {len(q['answers']) for q in questions if q['kind']=='iso'} == {2,3,4,5}
 for c in iso['clauses']:
  assert sum(q.get('clause') == c['id'] for q in questions) >= 2
 for q in questions:
@@ -81,4 +83,4 @@ for d in range(1,6):
  assert sum(q['domain']==d and q['kind']=='case' for q in questions)==8
 payload=dict(domains=domains,cases=cases,questions=questions,iso=iso)
 (ROOT/'data.js').write_text('/* Generado con python3 scripts/build_bank.py */\nwindow.STUDY_DATA = '+json.dumps(payload,ensure_ascii=False,indent=2)+';\n')
-print(f'Banco validado: {len(questions)} preguntas, 5 dominios, 5 casos y 10 cláusulas ISO/IEC 27701:2025.')
+print(f'Banco validado: {len(questions)} preguntas, 5 dominios, 5 casos y 11 cláusulas ISO/IEC 27701:2025.')
