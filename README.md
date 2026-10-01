@@ -1,6 +1,6 @@
 # Audita · práctica de Auditoría de Sistemas
 
-Página en español, adaptable a PC y celular, construida a partir de los dos Markdown de esta carpeta. No necesita cuentas, dependencias ni servicios externos para funcionar.
+Página en español, adaptable a PC y celular, construida a partir de los dos Markdown y del PDF ISO/IEC 27701:2025 de esta carpeta. No necesita cuentas, dependencias ni servicios externos para funcionar.
 
 ## Abrir la página
 
@@ -27,11 +27,22 @@ El servidor comparte el contenido de esta carpeta con los equipos que puedan acc
 | EP1 original | 30 | Enunciados, opciones, claves y sustentos del archivo proporcionado |
 | Nuevas por dominio | 50 | 10 por cada uno de los cinco dominios, inspiradas en sus autoevaluaciones |
 | Casos prácticos | 40 | 8 preguntas nuevas por cada uno de los cinco escenarios del manual |
-| **Total** | **120** | Todas con seis opciones y entre dos y cinco respuestas correctas |
+| ISO/IEC 27701:2025 | 30 | Preguntas originales sobre las cláusulas 1–10 del PDF proporcionado |
+| **Total** | **150** | Todas con seis opciones y entre dos y cinco respuestas correctas |
 
 Los ejercicios nuevos son material de estudio original, no preguntas oficiales. El manual utiliza también preguntas de respuesta única y preguntas abiertas; las nuevas se adaptan al formato de selección múltiple del EP1. Cada pregunta indica su fuente temática y página impresa de referencia. Los casos originales contienen 8, 8, 4, 4 y 5 preguntas respectivamente; se amplían a ocho ejercicios nuevos por caso.
 
 La pregunta 2 del EP1 no contiene una línea explícita de clave: se deduce A/B/C de su sustento. Se normalizaron el orden del enunciado de la pregunta 25 y las opciones de la 26. Se mantienen las claves del parcial, señalando matices en afirmaciones discutibles (p. ej., clasificación de datos, controles compensatorios y calidad).
+
+## ISO/IEC 27701:2025
+
+**Apartado público:** <https://dieguitobot.github.io/audita-cisa/#iso>
+
+Incluye las diez cláusulas: alcance; referencias normativas; términos, definiciones y abreviaturas; contexto; liderazgo; planificación; apoyo; operación; evaluación del desempeño; y mejora. Cada cláusula tiene resumen, conceptos clave, ejemplo de estudio, progreso, preguntas y enlace a sus páginas del PDF. Los resúmenes en español no son una traducción oficial. Los anexos solo se mencionan en las remisiones de las cláusulas estudiadas.
+
+Las 30 preguntas nuevas se distribuyen en 2, 2, 3, 4, 3, 5, 4, 2, 3 y 2 por cláusula, respectivamente. Se integran en búsquedas, filtros, guardadas, repaso de errores, simulacros y respaldos. Las preguntas ISO usan identificadores propios y no se asignan a dominios CISA. Se conserva la clave de almacenamiento y los identificadores anteriores para mantener el progreso existente.
+
+Fuente: `ISO 27701-2025.pdf`, páginas impresas 1–14 (páginas 7–20 del archivo). La edición 2025 presenta el PIMS como norma de sistema de gestión independiente; la cláusula 2 referencia ISO/IEC 29100. Los ejercicios son material original de estudio, no preguntas oficiales.
 
 ## Formas de estudiar
 
@@ -51,6 +62,8 @@ Los datos permanecen en el almacenamiento local del navegador; no hay sincroniza
 - `index.html`, `styles.css`, `app.js`: interfaz y comportamiento, sin frameworks.
 - `data.js`: banco generado y listo para abrir sin `fetch` ni servidor obligatorio.
 - `scripts/questions.txt`: 90 ejercicios originales editables. Campos separados por `~`; opciones por `|`; clave con letras A–F.
+- `scripts/iso27701.json`: guía por cláusula y referencias de página del PDF.
+- `scripts/iso_questions.txt`: 30 ejercicios originales ISO, con referencia, seis opciones, clave y explicación.
 - `scripts/build_bank.py`: extrae el EP1, incorpora las preguntas nuevas y valida cantidades y estructura.
 - `scripts/smoke.cjs`: pruebas de interacción en navegador (requieren Playwright).
 - Los dos Markdown originales permanecen como material de referencia.

@@ -3172,6 +3172,975 @@ window.STUDY_DATA = {
       "source": "Manual CISA 2024 · dominio 5 · caso Spectertainment, ampliación de acceso remoto, pp. 545–546. Pregunta original de práctica, no oficial.",
       "sourceFile": "CISA Official Review Manual (2024)_compressed-1.md",
       "caseId": 5
+    },
+    {
+      "id": "iso-1-1",
+      "number": 1,
+      "domain": null,
+      "clause": 1,
+      "kind": "iso",
+      "topic": "Cláusula 1 · Alcance",
+      "prompt": "Una ONG pequeña trata datos de donantes. ¿Qué afirmaciones sobre el alcance de ISO/IEC 27701:2025 son correctas?",
+      "options": [
+        "Puede aplicarla aunque no tenga fines de lucro",
+        "Puede aplicarla aunque sea pequeña",
+        "Solo se aplica a empresas tecnológicas",
+        "Solo regula organizaciones públicas",
+        "Incluye requisitos para mantener y mejorar un PIMS",
+        "Excluye a los encargados del tratamiento"
+      ],
+      "answers": [
+        0,
+        1,
+        4
+      ],
+      "explanation": "La cláusula 1 admite organizaciones de todos los tamaños y tipos, incluidos los organismos sin fines de lucro. El sistema abarca establecimiento, implementación, mantenimiento y mejora, y se dirige tanto a responsables como a encargados.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 1 · páginas impresas 1. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-1-2",
+      "number": 2,
+      "domain": null,
+      "clause": 1,
+      "kind": "iso",
+      "topic": "Cláusula 1 · Alcance",
+      "prompt": "Un equipo confunde el alcance de la norma con el alcance de su PIMS. ¿Qué aclaraciones son válidas?",
+      "options": [
+        "La norma está dirigida a responsables y encargados de PII",
+        "La cláusula 1 fija automáticamente los límites de cada organización",
+        "Cada organización debe determinar el alcance de su PIMS",
+        "La norma solo contiene definiciones",
+        "El alcance particular puede ignorar el tratamiento de PII",
+        "El documento incluye orientación para implementar sus requisitos"
+      ],
+      "answers": [
+        0,
+        2,
+        5
+      ],
+      "explanation": "La cláusula 1 explica a quién se dirige la norma y su propósito. La delimitación concreta del sistema corresponde a 4.3, debe documentarse e incluir el tratamiento de PII. El documento contiene requisitos y orientación.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 1 y 4.3 · páginas impresas 1. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-2-1",
+      "number": 1,
+      "domain": null,
+      "clause": 2,
+      "kind": "iso",
+      "topic": "Cláusula 2 · Referencias normativas",
+      "prompt": "Al revisar la cláusula 2 de la edición proporcionada, ¿qué afirmaciones sobre referencias normativas son correctas?",
+      "options": [
+        "ISO/IEC 29100 figura como referencia normativa",
+        "Toda norma mencionada en una nota se convierte en referencia normativa de la cláusula 2",
+        "Una referencia fechada remite a la edición citada",
+        "Una referencia sin fecha siempre remite a la primera edición",
+        "ISO/IEC 29100 aparece sin año en esta cláusula",
+        "ISO/IEC 27001 es la única referencia de esta cláusula"
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "explanation": "La referencia normativa listada es ISO/IEC 29100 y no lleva fecha. La regla diferencia referencias fechadas y no fechadas; las menciones orientativas de otras normas no sustituyen esta lista.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 2 · páginas impresas 1. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-2-2",
+      "number": 2,
+      "domain": null,
+      "clause": 2,
+      "kind": "iso",
+      "topic": "Cláusula 2 · Referencias normativas",
+      "prompt": "Un equipo prepara el material de consulta de la norma. ¿Qué decisiones siguen la regla de referencias normativas?",
+      "options": [
+        "Fijar todas las referencias sin fecha en la edición de 2019",
+        "Para una referencia sin fecha, considerar la edición más reciente y sus modificaciones",
+        "Ignorar ISO/IEC 29100 porque no aparece un año",
+        "Reconocer ISO/IEC 29100 como marco de privacidad",
+        "Tratar la bibliografía y las referencias normativas como categorías idénticas",
+        "Consultar la edición indicada cuando una referencia tenga fecha"
+      ],
+      "answers": [
+        1,
+        3,
+        5
+      ],
+      "explanation": "La cláusula 2 remite al marco de privacidad ISO/IEC 29100. Las referencias no fechadas siguen su edición más reciente con modificaciones; para las fechadas se aplica la edición citada.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 2 · páginas impresas 1. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-3-1",
+      "number": 1,
+      "domain": null,
+      "clause": 3,
+      "kind": "iso",
+      "topic": "Cláusula 3 · Términos, definiciones y abreviaturas",
+      "prompt": "Se detecta que un proceso no cumple un requisito. ¿Qué distinciones terminológicas son correctas?",
+      "options": [
+        "El incumplimiento de un requisito es una no conformidad",
+        "Toda corrección puntual elimina necesariamente la causa",
+        "La acción correctiva busca eliminar causas y evitar la repetición",
+        "La información documentada solo puede estar en papel",
+        "La información documentada puede incluir evidencia de resultados",
+        "Una no conformidad solo existe si hubo una sanción"
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "explanation": "Una no conformidad es el incumplimiento de un requisito. La acción correctiva se dirige a sus causas, y la información documentada puede ser de diversos formatos e incluir registros de resultados. Corregir un caso no demuestra por sí solo que se eliminó su causa.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 3.10, 3.16 y 3.17 · páginas impresas 1–4. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-3-2",
+      "number": 2,
+      "domain": null,
+      "clause": 3,
+      "kind": "iso",
+      "topic": "Cláusula 3 · Términos, definiciones y abreviaturas",
+      "prompt": "¿Qué asociaciones corresponden al vocabulario de esta edición?",
+      "options": [
+        "PIMS: un producto informático específico obligatorio",
+        "Corresponsable: quien decide finalidades y medios junto con otros responsables",
+        "Declaración de aplicabilidad: documentación de controles y justificaciones de inclusión o exclusión",
+        "PIMS: sistema de gestión que aborda la privacidad afectada por el tratamiento de PII",
+        "Corresponsable: cualquier proveedor sin capacidad de decisión",
+        "Declaración de aplicabilidad: un certificado emitido automáticamente"
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "El PIMS es un sistema de gestión, no una herramienta concreta. La corresponsabilidad implica determinación conjunta de finalidades y medios. La declaración de aplicabilidad documenta controles y justificaciones; no es un certificado.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 3.21, 3.23 y 3.25 · páginas impresas 1–4. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-3-3",
+      "number": 3,
+      "domain": null,
+      "clause": 3,
+      "kind": "iso",
+      "topic": "Cláusula 3 · Términos, definiciones y abreviaturas",
+      "prompt": "Un equipo revisa sus indicadores y habilidades. ¿Qué interpretaciones son correctas?",
+      "options": [
+        "La competencia consiste únicamente en asistir a un curso",
+        "La eficacia se refiere a realizar lo planificado y alcanzar los resultados previstos",
+        "El desempeño solo admite cifras y nunca resultados cualitativos",
+        "El riesgo está relacionado con el efecto de la incertidumbre",
+        "La competencia implica aplicar conocimientos y habilidades para lograr resultados",
+        "Un riesgo requiere que el daño ya se haya materializado"
+      ],
+      "answers": [
+        1,
+        3,
+        4
+      ],
+      "explanation": "La competencia se demuestra mediante la capacidad de aplicar conocimientos y habilidades. La eficacia relaciona actividades y resultados con lo planificado; el desempeño puede ser cuantitativo o cualitativo. El riesgo no exige un daño ya ocurrido.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 3.7, 3.9, 3.11 y 3.13 · páginas impresas 1–4. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 7
+    },
+    {
+      "id": "iso-4-1",
+      "number": 1,
+      "domain": null,
+      "clause": 4,
+      "kind": "iso",
+      "topic": "Cláusula 4 · Contexto de la organización",
+      "prompt": "Una empresa trata datos de sus empleados y también procesa datos por cuenta de clientes. ¿Qué debe considerar al analizar su contexto?",
+      "options": [
+        "Puede desempeñar funciones diferentes según el tratamiento",
+        "Debe elegir una sola función para toda la empresa sin analizar los tratamientos",
+        "Debe distinguir las funciones cuando actúa como responsable y encargado",
+        "Debe determinar si el cambio climático es relevante para su contexto",
+        "Puede ignorar las cuestiones externas",
+        "La relevancia del contexto se decide solo por el tamaño del área de TI"
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "La función depende de quién decide los fines y medios de cada tratamiento. Si la organización actúa en ambas funciones debe distinguirlas. El análisis incluye cuestiones internas y externas y determinar la relevancia del cambio climático.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 4.1 · páginas impresas 4–6. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 10
+    },
+    {
+      "id": "iso-4-2",
+      "number": 2,
+      "domain": null,
+      "clause": 4,
+      "kind": "iso",
+      "topic": "Cláusula 4 · Contexto de la organización",
+      "prompt": "¿Qué actividades forman parte de comprender las necesidades y expectativas de las partes interesadas?",
+      "options": [
+        "Identificar únicamente a los accionistas",
+        "Identificar las partes relevantes para el PIMS",
+        "Incluir a los titulares de la PII entre las partes interesadas",
+        "Determinar requisitos relevantes y cuáles se atenderán mediante el PIMS",
+        "Asumir que todo cliente es necesariamente un titular individual",
+        "Excluir a los encargados y sus subcontratistas sin evaluar su relevancia"
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "La cláusula 4.2 exige identificar partes y requisitos relevantes, y determinar su tratamiento en el PIMS. Incluye a los titulares; los clientes también pueden ser organizaciones y otros participantes pueden ser relevantes.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 4.2 · páginas impresas 4–6. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 10
+    },
+    {
+      "id": "iso-4-3",
+      "number": 3,
+      "domain": null,
+      "clause": 4,
+      "kind": "iso",
+      "topic": "Cláusula 4 · Contexto de la organización",
+      "prompt": "¿Qué prácticas son adecuadas al establecer el alcance del PIMS?",
+      "options": [
+        "Documentar los límites y la aplicabilidad",
+        "Omitir el contexto externo porque no es controlable",
+        "Considerar los requisitos identificados en 4.2",
+        "Mantener el alcance únicamente como un acuerdo verbal",
+        "Excluir todo tratamiento de PII del alcance",
+        "Incluir el tratamiento de PII al determinarlo"
+      ],
+      "answers": [
+        0,
+        2,
+        5
+      ],
+      "explanation": "El alcance debe estar disponible como información documentada, considerar el contexto de 4.1 y los requisitos de 4.2, e incluir el tratamiento de PII. Un acuerdo verbal no satisface la exigencia documental.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 4.3 · páginas impresas 4–6. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 10
+    },
+    {
+      "id": "iso-4-4",
+      "number": 4,
+      "domain": null,
+      "clause": 4,
+      "kind": "iso",
+      "topic": "Cláusula 4 · Contexto de la organización",
+      "prompt": "La organización ya redactó un manual de privacidad. ¿Qué sigue siendo necesario para cumplir con la gestión del sistema?",
+      "options": [
+        "Implementar el PIMS y sus procesos",
+        "Considerar que redactar el manual completa todos los requisitos",
+        "Mantener y mejorar continuamente el sistema",
+        "Eliminar las interacciones entre procesos del análisis",
+        "Considerar los procesos necesarios y sus interacciones",
+        "Esperar a un incidente para comenzar a operar el sistema"
+      ],
+      "answers": [
+        0,
+        2,
+        4
+      ],
+      "explanation": "La cláusula 4.4 requiere establecer, implementar, mantener y mejorar el PIMS, incluidos sus procesos e interacciones. Un manual puede apoyar el sistema, pero no sustituye su funcionamiento.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 4.4 · páginas impresas 4–6. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 10
+    },
+    {
+      "id": "iso-5-1",
+      "number": 1,
+      "domain": null,
+      "clause": 5,
+      "kind": "iso",
+      "topic": "Cláusula 5 · Liderazgo",
+      "prompt": "¿Qué actuaciones evidencian liderazgo y compromiso de la alta dirección?",
+      "options": [
+        "Integrar los requisitos del PIMS en los procesos de negocio",
+        "Delegar el trabajo y desentenderse de los resultados",
+        "Asegurar recursos para el sistema",
+        "Alinear política y objetivos con la dirección estratégica",
+        "Limitar la privacidad a una campaña anual de comunicación",
+        "Promover la mejora continua y apoyar a las personas"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "explanation": "El liderazgo se refleja en integración, alineación, recursos, apoyo y mejora. Delegar tareas no elimina las actuaciones de liderazgo que exige 5.1 ni la atención a los resultados previstos.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 5.1 · páginas impresas 6–7. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 12
+    },
+    {
+      "id": "iso-5-2",
+      "number": 2,
+      "domain": null,
+      "clause": 5,
+      "kind": "iso",
+      "topic": "Cláusula 5 · Liderazgo",
+      "prompt": "¿Qué características debe reunir la política de privacidad del PIMS?",
+      "options": [
+        "Ser adecuada al propósito de la organización",
+        "Incluir compromisos de cumplir requisitos aplicables y mejorar continuamente",
+        "Sustituir los objetivos de privacidad y hacerlos innecesarios",
+        "Mantenerse secreta para todas las personas de la organización",
+        "Estar documentada y comunicarse internamente",
+        "Estar disponible para partes interesadas según corresponda"
+      ],
+      "answers": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "explanation": "La política debe orientar los objetivos, ser adecuada y expresar compromisos de cumplimiento y mejora. Debe documentarse, comunicarse dentro de la organización y estar disponible para partes interesadas según corresponda.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 5.2 · páginas impresas 6–7. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 12
+    },
+    {
+      "id": "iso-5-3",
+      "number": 3,
+      "domain": null,
+      "clause": 5,
+      "kind": "iso",
+      "topic": "Cláusula 5 · Liderazgo",
+      "prompt": "La dirección asigna funciones para el PIMS. ¿Qué responsabilidades y condiciones debe asegurar?",
+      "options": [
+        "Que solo el proveedor externo conozca las funciones",
+        "Que se asigne responsabilidad y autoridad para asegurar la conformidad del PIMS",
+        "Que nadie informe a la dirección para preservar la independencia",
+        "Que se asigne la responsabilidad de informar sobre el desempeño a la alta dirección",
+        "Que las responsabilidades y autoridades relevantes se comuniquen en la organización",
+        "Que la norma imponga un nombre de puesto idéntico para todas las organizaciones"
+      ],
+      "answers": [
+        1,
+        3,
+        4
+      ],
+      "explanation": "La cláusula 5.3 exige asignar y comunicar responsabilidades y autoridad. Incluye asegurar conformidad e informar del desempeño a la dirección, sin prescribir aquí un nombre único de puesto.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 5.3 · páginas impresas 6–7. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 12
+    },
+    {
+      "id": "iso-6-1",
+      "number": 1,
+      "domain": null,
+      "clause": 6,
+      "kind": "iso",
+      "topic": "Cláusula 6 · Planificación",
+      "prompt": "Al planificar acciones sobre riesgos y oportunidades del PIMS, ¿qué corresponde hacer?",
+      "options": [
+        "Considerar las cuestiones de contexto y los requisitos relevantes",
+        "Limitarse a elaborar una lista sin planificar acciones",
+        "Planificar cómo integrar las acciones en los procesos",
+        "Evaluar la eficacia de las acciones",
+        "Considerar solo oportunidades comerciales e ignorar efectos no deseados",
+        "Posponer toda actuación hasta una auditoría externa"
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "La planificación parte de 4.1 y 4.2 y busca lograr resultados, prevenir o reducir efectos indeseados y mejorar. Se requieren acciones integradas en los procesos y evaluación de su eficacia.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 6.1.1 · páginas impresas 7–10. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 13
+    },
+    {
+      "id": "iso-6-2",
+      "number": 2,
+      "domain": null,
+      "clause": 6,
+      "kind": "iso",
+      "topic": "Cláusula 6 · Planificación",
+      "prompt": "¿Qué debe incorporar el proceso de evaluación de riesgos de privacidad?",
+      "options": [
+        "Criterios de aceptación y de evaluación del riesgo",
+        "Cambiar los criterios arbitrariamente para que cada evaluación dé resultados distintos",
+        "Considerar consecuencias solo para la organización",
+        "Identificar propietarios de riesgos",
+        "Analizar consecuencias para la organización y los titulares, probabilidad y nivel de riesgo",
+        "Comparar con criterios y priorizar el tratamiento"
+      ],
+      "answers": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "explanation": "El proceso debe producir resultados consistentes, válidos y comparables. Identifica riesgos y propietarios, analiza consecuencias para organización y titulares y su probabilidad, y compara niveles con criterios para priorizar. Se conserva información documentada del proceso.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 6.1.2 · páginas impresas 7–10. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 13
+    },
+    {
+      "id": "iso-6-3",
+      "number": 3,
+      "domain": null,
+      "clause": 6,
+      "kind": "iso",
+      "topic": "Cláusula 6 · Planificación",
+      "prompt": "Un equipo selecciona controles para tratar riesgos de privacidad. ¿Qué afirmaciones son correctas?",
+      "options": [
+        "Solo puede escoger controles del anexo A",
+        "Debe contrastar los controles determinados con el anexo A para evitar omisiones necesarias",
+        "Debe identificar y documentar el programa de seguridad de la información implementado",
+        "Puede incorporar controles adicionales cuando sean necesarios",
+        "La orientación del anexo B nunca debe considerarse",
+        "La evaluación de riesgos es irrelevante para seleccionar el tratamiento"
+      ],
+      "answers": [
+        1,
+        2,
+        3
+      ],
+      "explanation": "El tratamiento parte de la evaluación. Los controles pueden proceder de otras fuentes o diseñarse; se contrastan con el anexo A, cuya lista no es exhaustiva. También se documenta el programa de seguridad y se considera la orientación del anexo B.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 6.1.3 · páginas impresas 7–10. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 13
+    },
+    {
+      "id": "iso-6-4",
+      "number": 4,
+      "domain": null,
+      "clause": 6,
+      "kind": "iso",
+      "topic": "Cláusula 6 · Planificación",
+      "prompt": "¿Qué debe reflejar la declaración de aplicabilidad y la aprobación del tratamiento?",
+      "options": [
+        "Controles necesarios y justificación de su inclusión",
+        "Justificación de exclusiones de controles del anexo A",
+        "El estado de implementación de los controles necesarios",
+        "La aprobación del plan y aceptación de riesgos residuales por los propietarios de los riesgos",
+        "La obligación de incluir todos los controles sin analizar su necesidad",
+        "La eliminación automática de todo riesgo por firmar el plan"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "La declaración recoge controles, justificaciones y estado de implementación. El proceso requiere que los propietarios aprueben el plan y acepten los riesgos residuales. Excluir controles del anexo A requiere justificación; la firma no elimina el riesgo.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 6.1.3 · páginas impresas 7–10. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 13
+    },
+    {
+      "id": "iso-6-5",
+      "number": 5,
+      "domain": null,
+      "clause": 6,
+      "kind": "iso",
+      "topic": "Cláusula 6 · Planificación",
+      "prompt": "Al definir objetivos de privacidad y modificar el PIMS, ¿qué actuaciones son adecuadas?",
+      "options": [
+        "Establecer objetivos coherentes con la política y medibles cuando sea practicable",
+        "Documentar, comunicar, supervisar y actualizar los objetivos según corresponda",
+        "Omitir responsables y plazos para mantener flexibilidad",
+        "Definir acciones, recursos, responsables, plazos y evaluación de resultados",
+        "Aplicar los cambios necesarios de forma planificada",
+        "Considerar que un objetivo documentado ya está alcanzado"
+      ],
+      "answers": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "explanation": "La cláusula 6.2 conecta los objetivos con una planificación verificable para alcanzarlos. La medición se exige cuando es practicable; documentarlos no acredita haberlos logrado. La cláusula 6.3 exige planificar los cambios del sistema.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 6.2 y 6.3 · páginas impresas 7–10. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 13
+    },
+    {
+      "id": "iso-7-1",
+      "number": 1,
+      "domain": null,
+      "clause": 7,
+      "kind": "iso",
+      "topic": "Cláusula 7 · Apoyo",
+      "prompt": "Se identifica una brecha de competencia en el equipo de privacidad. ¿Qué respuestas son adecuadas?",
+      "options": [
+        "Determinar la competencia necesaria para el trabajo",
+        "Asumir que cualquier diploma demuestra todas las competencias",
+        "Proporcionar los recursos necesarios",
+        "Tomar acciones para adquirir competencia y evaluar su eficacia cuando corresponda",
+        "Disponer de evidencia documentada de la competencia",
+        "Sustituir la evaluación por una lista de asistencia en todos los casos"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "explanation": "La organización proporciona recursos y asegura competencia basada en educación, formación o experiencia. Cuando toma acciones para adquirir competencia debe evaluar su eficacia y disponer de evidencia; la asistencia por sí sola no demuestra necesariamente la habilidad requerida.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 7.1 y 7.2 · páginas impresas 10–11. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 16
+    },
+    {
+      "id": "iso-7-2",
+      "number": 2,
+      "domain": null,
+      "clause": 7,
+      "kind": "iso",
+      "topic": "Cláusula 7 · Apoyo",
+      "prompt": "¿Qué combina adecuadamente concienciación y comunicación del PIMS?",
+      "options": [
+        "Hacer consciente al personal de su contribución y de las consecuencias del incumplimiento",
+        "Comunicar únicamente después de un incidente",
+        "Determinar qué se comunica, cuándo, con quién y cómo",
+        "Asegurar que las personas conozcan la política de privacidad",
+        "Excluir las comunicaciones externas del análisis",
+        "Suponer que publicar un documento garantiza comprensión"
+      ],
+      "answers": [
+        0,
+        2,
+        3
+      ],
+      "explanation": "La concienciación comprende política, contribución y consecuencias del incumplimiento. La comunicación debe considerar tanto el ámbito interno como el externo y definir contenido, momento, destinatarios y forma.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 7.3 y 7.4 · páginas impresas 10–11. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 16
+    },
+    {
+      "id": "iso-7-3",
+      "number": 3,
+      "domain": null,
+      "clause": 7,
+      "kind": "iso",
+      "topic": "Cláusula 7 · Apoyo",
+      "prompt": "Al crear o actualizar información documentada, ¿qué prácticas corresponden?",
+      "options": [
+        "Usar siempre papel porque el formato electrónico está prohibido",
+        "Incluir la documentación requerida y la que la organización necesite para la eficacia del sistema",
+        "Identificar y describir adecuadamente los documentos",
+        "Revisar y aprobar su idoneidad y adecuación",
+        "Evitar toda revisión para agilizar la publicación",
+        "Considerar el formato y el medio adecuados"
+      ],
+      "answers": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "explanation": "El PIMS necesita tanto la documentación requerida como la determinada por la organización. Al crearla o actualizarla se atienden identificación, formato, medio, revisión y aprobación. No hay una obligación general de usar papel.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 7.5.1 y 7.5.2 · páginas impresas 10–11. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 16
+    },
+    {
+      "id": "iso-7-4",
+      "number": 4,
+      "domain": null,
+      "clause": 7,
+      "kind": "iso",
+      "topic": "Cláusula 7 · Apoyo",
+      "prompt": "¿Qué medidas apoyan el control de la información documentada?",
+      "options": [
+        "Asegurar que esté disponible donde y cuando se necesite",
+        "Permitir cambios sin control a cualquier lector",
+        "Protegerla frente al uso indebido o pérdida de integridad",
+        "Controlar versiones, retención y disposición según corresponda",
+        "Identificar y controlar documentos externos necesarios para el PIMS",
+        "Ignorar la legibilidad mientras se conserve el archivo"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "explanation": "Controlar la documentación implica disponibilidad y protección, acceso, almacenamiento, preservación de legibilidad, cambios y retención. También alcanza a documentos externos necesarios; el permiso para leer no supone permiso para modificar.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 7.5.3 · páginas impresas 10–11. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 16
+    },
+    {
+      "id": "iso-8-1",
+      "number": 1,
+      "domain": null,
+      "clause": 8,
+      "kind": "iso",
+      "topic": "Cláusula 8 · Operación",
+      "prompt": "Un proceso relevante del PIMS pasa a un proveedor y se producen cambios imprevistos. ¿Qué acciones son adecuadas?",
+      "options": [
+        "Controlar los servicios externos relevantes",
+        "Asumir que la contratación transfiere toda la necesidad de control",
+        "Establecer criterios operativos y controlar los procesos conforme a ellos",
+        "Revisar las consecuencias de cambios imprevistos y mitigar efectos adversos según sea necesario",
+        "Eliminar toda evidencia una vez firmado el contrato",
+        "Controlar los cambios planificados"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "explanation": "La operación incluye criterios, control de procesos y evidencia suficiente, así como control de los servicios externos relevantes. Deben controlarse cambios planificados y revisarse los imprevistos, mitigando efectos adversos cuando sea necesario.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 8.1 · páginas impresas 12. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 18
+    },
+    {
+      "id": "iso-8-2",
+      "number": 2,
+      "domain": null,
+      "clause": 8,
+      "kind": "iso",
+      "topic": "Cláusula 8 · Operación",
+      "prompt": "Se propone un cambio significativo en el tratamiento de PII. ¿Qué corresponde a la operación del PIMS?",
+      "options": [
+        "Evaluar riesgos únicamente tras materializarse un daño",
+        "Evaluar riesgos cuando se proponen o producen cambios significativos y a intervalos planificados",
+        "Conservar los resultados de las evaluaciones",
+        "Implementar el plan de tratamiento y conservar sus resultados",
+        "Considerar que aprobar el plan equivale a implementarlo",
+        "Aplicar los criterios de evaluación establecidos en 6.1.2"
+      ],
+      "answers": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "explanation": "La operación ejecuta la planificación: realiza evaluaciones con los criterios definidos y conserva resultados. También implementa el plan de tratamiento y documenta sus resultados. La aprobación no sustituye a la implementación.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 8.2 y 8.3 · páginas impresas 12. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 18
+    },
+    {
+      "id": "iso-9-1",
+      "number": 1,
+      "domain": null,
+      "clause": 9,
+      "kind": "iso",
+      "topic": "Cláusula 9 · Evaluación del desempeño",
+      "prompt": "¿Qué decisiones hacen útil el seguimiento y la medición del PIMS?",
+      "options": [
+        "Determinar qué se supervisa y mide",
+        "Elegir métodos capaces de producir resultados válidos",
+        "Guardar cifras sin analizarlas nunca",
+        "Determinar cuándo medir y cuándo analizar y evaluar",
+        "Disponer de evidencia documentada de los resultados",
+        "Usar cualquier indicador sin relación con desempeño o eficacia"
+      ],
+      "answers": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "explanation": "La cláusula 9.1 requiere definir objeto, métodos y momentos de seguimiento, medición, análisis y evaluación. Los resultados documentados permiten evaluar desempeño de privacidad y eficacia del PIMS; acumular cifras sin evaluación no basta.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 9.1 · páginas impresas 12–14. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 18
+    },
+    {
+      "id": "iso-9-2",
+      "number": 2,
+      "domain": null,
+      "clause": 9,
+      "kind": "iso",
+      "topic": "Cláusula 9 · Evaluación del desempeño",
+      "prompt": "¿Qué debe contemplar una auditoría interna del PIMS?",
+      "options": [
+        "Conformidad con requisitos propios y con los de la norma, e implementación y mantenimiento eficaces",
+        "Objetivos, criterios y alcance definidos para cada auditoría",
+        "Selección de auditores que asegure objetividad e imparcialidad",
+        "Un programa que considere importancia de procesos y resultados de auditorías previas",
+        "Sustituir la evidencia por opiniones no contrastadas",
+        "Ocultar los resultados a los responsables pertinentes"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "La auditoría verifica conformidad y funcionamiento eficaz. El programa incluye frecuencia, métodos y responsabilidades y considera procesos y auditorías previas. Se definen objetivos, criterios y alcance, se preserva imparcialidad y se comunican resultados con evidencia documental.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 9.2 · páginas impresas 12–14. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 18
+    },
+    {
+      "id": "iso-9-3",
+      "number": 3,
+      "domain": null,
+      "clause": 9,
+      "kind": "iso",
+      "topic": "Cláusula 9 · Evaluación del desempeño",
+      "prompt": "¿Qué corresponde a la revisión del PIMS por la alta dirección?",
+      "options": [
+        "Revisarlo a intervalos planificados",
+        "Considerar acciones previas y cambios en contexto y partes interesadas",
+        "Ignorar tendencias de no conformidades y resultados de auditoría",
+        "Considerar información de desempeño y oportunidades de mejora",
+        "Registrar decisiones sobre mejoras o cambios y disponer de evidencia de resultados",
+        "Reemplazar toda decisión por la mera recepción de un tablero"
+      ],
+      "answers": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "explanation": "La revisión considera entradas como acciones previas, cambios y tendencias de desempeño, incluidas mediciones y auditorías. Sus resultados comprenden decisiones sobre mejoras y cambios del sistema y deben estar disponibles como evidencia documentada.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 9.3 · páginas impresas 12–14. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 18
+    },
+    {
+      "id": "iso-10-1",
+      "number": 1,
+      "domain": null,
+      "clause": 10,
+      "kind": "iso",
+      "topic": "Cláusula 10 · Mejora",
+      "prompt": "Se repite una no conformidad que antes solo se corrigió de forma puntual. ¿Qué actuaciones son adecuadas?",
+      "options": [
+        "Controlar y corregir el problema y atender sus consecuencias cuando corresponda",
+        "Cerrar el caso sin analizarlo porque ya ocurrió antes",
+        "Determinar causas y si existen o pueden aparecer situaciones similares",
+        "Implementar acciones necesarias y revisar su eficacia",
+        "Actualizar el PIMS si es necesario",
+        "Confundir la corrección inmediata con la eliminación demostrada de la causa"
+      ],
+      "answers": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "explanation": "La reacción inmediata atiende el problema y sus consecuencias, pero 10.2 también exige evaluar la necesidad de eliminar causas, analizar recurrencias potenciales, actuar y revisar eficacia. El PIMS se modifica cuando es necesario, apoyando la mejora continua de 10.1.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 10.1 y 10.2 · páginas impresas 14. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 20
+    },
+    {
+      "id": "iso-10-2",
+      "number": 2,
+      "domain": null,
+      "clause": 10,
+      "kind": "iso",
+      "topic": "Cláusula 10 · Mejora",
+      "prompt": "¿Qué criterios permiten cerrar y aprender de una acción correctiva?",
+      "options": [
+        "Conservar evidencia de la naturaleza de la no conformidad y de las acciones posteriores",
+        "Conservar los resultados de la acción correctiva",
+        "Ajustar las acciones a los efectos de la no conformidad",
+        "Declarar eficaz una acción solo porque fue asignada",
+        "Mejorar continuamente la idoneidad, adecuación y eficacia del PIMS",
+        "Eliminar registros para que no aparezcan en la próxima auditoría"
+      ],
+      "answers": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "explanation": "La acción correctiva debe ser adecuada a los efectos y su eficacia debe revisarse. La evidencia comprende el problema, las acciones posteriores y sus resultados. Asignar una acción no demuestra su eficacia, y borrar evidencia impide acreditar el tratamiento y aprender de él.",
+      "note": "Ejercicio original de estudio; no es una pregunta oficial ni una traducción oficial de la norma.",
+      "source": "ISO/IEC 27701:2025 · cláusula 10.1 y 10.2 · páginas impresas 14. PDF proporcionado.",
+      "sourceFile": "ISO 27701-2025.pdf",
+      "sourcePage": 20
     }
-  ]
+  ],
+  "iso": {
+    "title": "ISO/IEC 27701:2025",
+    "sourceFile": "ISO 27701-2025.pdf",
+    "clauses": [
+      {
+        "id": 1,
+        "name": "Alcance",
+        "pages": "1",
+        "pdfPage": 7,
+        "summary": "Define el propósito de la norma: establecer, implementar, mantener y mejorar un sistema de gestión de información de privacidad (PIMS).",
+        "points": [
+          "Está dirigida a responsables y encargados del tratamiento de información de identificación personal (PII).",
+          "Puede aplicarse a organizaciones de cualquier tamaño y sector, incluidas entidades públicas y organizaciones sin fines de lucro.",
+          "Incluye requisitos y orientación para implementarlos. El alcance general de la norma se distingue del alcance particular del PIMS que cada organización determina en 4.3."
+        ],
+        "example": "Una ONG pequeña que trata datos de donantes también puede aplicar la norma."
+      },
+      {
+        "id": 2,
+        "name": "Referencias normativas",
+        "pages": "1",
+        "pdfPage": 7,
+        "summary": "Identifica ISO/IEC 29100, marco de privacidad, como referencia normativa de esta edición.",
+        "points": [
+          "Las referencias normativas incorporan contenido necesario para interpretar y aplicar los requisitos.",
+          "Una referencia fechada remite a la edición indicada; una referencia sin fecha remite a su edición más reciente, incluidas las modificaciones.",
+          "La referencia a ISO/IEC 29100 aparece sin fecha. Una mención bibliográfica o una nota orientativa no equivale por sí sola a una referencia normativa de la cláusula 2."
+        ],
+        "example": "Al preparar una lista de documentos de referencia, distingue la referencia normativa de las normas citadas como orientación."
+      },
+      {
+        "id": 3,
+        "name": "Términos, definiciones y abreviaturas",
+        "pages": "1–4",
+        "pdfPage": 7,
+        "summary": "Establece un vocabulario común junto con los términos de ISO/IEC 29100. PII se refiere a información de identificación personal y PIMS al sistema que gestiona su privacidad.",
+        "points": [
+          "3.1–3.9: organización, partes interesadas, alta dirección, sistema de gestión, política, objetivo, riesgo, proceso y competencia. El riesgo se relaciona con la incertidumbre; la competencia implica aplicar conocimientos y habilidades.",
+          "3.10–3.20: información documentada, desempeño, mejora continua, eficacia, requisito, conformidad, no conformidad, acción correctiva, auditoría, medición y seguimiento. Una acción correctiva aborda las causas para prevenir la repetición.",
+          "3.21–3.25: corresponsable del tratamiento, cliente, PIMS, programa de seguridad de la información y declaración de aplicabilidad. La corresponsabilidad implica decidir conjuntamente finalidades y medios; la declaración documenta controles y justifica su inclusión o exclusión."
+        ],
+        "example": "Corregir un registro equivocado resuelve el caso puntual; cambiar y verificar el proceso que originó el error puede formar parte de una acción correctiva."
+      },
+      {
+        "id": 4,
+        "name": "Contexto de la organización",
+        "pages": "4–6",
+        "pdfPage": 10,
+        "summary": "Sitúa el PIMS en la realidad de la organización: contexto, partes interesadas, funciones en el tratamiento y límites del sistema.",
+        "points": [
+          "4.1: analizar cuestiones internas y externas relevantes y determinar si el cambio climático es relevante. Identificar si se actúa como responsable, corresponsable o encargado; distinguir las funciones cuando se desempeñan varias.",
+          "4.2: identificar partes interesadas, sus requisitos relevantes y cuáles se atenderán mediante el PIMS. Incluir a quienes tienen intereses o responsabilidades en el tratamiento, especialmente a los titulares de PII.",
+          "4.3: documentar los límites y la aplicabilidad del PIMS considerando el contexto y los requisitos; incluir el tratamiento de PII.",
+          "4.4: establecer, implementar, mantener y mejorar el sistema, sus procesos y sus interacciones."
+        ],
+        "example": "Un proveedor puede ser encargado para los datos de sus clientes y responsable para los datos de sus empleados; debe distinguir ambos tratamientos."
+      },
+      {
+        "id": 5,
+        "name": "Liderazgo",
+        "pages": "6–7",
+        "pdfPage": 12,
+        "summary": "La alta dirección impulsa el PIMS, lo integra en el negocio y asegura política, recursos y responsabilidades.",
+        "points": [
+          "5.1: alinear política y objetivos con la dirección estratégica, integrar requisitos en los procesos, aportar recursos, apoyar a las personas y promover la mejora.",
+          "5.2: establecer una política apropiada al propósito, que oriente los objetivos y comprometa el cumplimiento de requisitos aplicables y la mejora continua. Documentarla, comunicarla internamente y ponerla a disposición de partes interesadas según corresponda.",
+          "5.3: asignar y comunicar responsabilidades y autoridad para asegurar la conformidad del PIMS e informar sobre su desempeño a la alta dirección."
+        ],
+        "example": "Aprobar una política no basta si los equipos carecen de recursos y nadie informa a la dirección sobre el desempeño del sistema."
+      },
+      {
+        "id": 6,
+        "name": "Planificación",
+        "pages": "7–10",
+        "pdfPage": 13,
+        "summary": "Convierte contexto y requisitos en acciones sobre riesgos y oportunidades, objetivos de privacidad y cambios planificados.",
+        "points": [
+          "6.1.1: determinar riesgos y oportunidades, planificar acciones, integrarlas en los procesos y evaluar su eficacia.",
+          "6.1.2: definir criterios de evaluación y aceptación del riesgo para obtener resultados consistentes y comparables. Identificar propietarios de riesgos, analizar probabilidad y consecuencias para la organización y los titulares, y priorizar el tratamiento. Conservar información del proceso.",
+          "6.1.3: seleccionar tratamientos y controles necesarios, identificar y documentar el programa de seguridad, contrastar controles con el anexo A y considerar la orientación del anexo B. Preparar la declaración de aplicabilidad, justificar inclusiones y exclusiones y registrar el estado de implementación. Obtener aprobación del plan y aceptación de riesgos residuales por sus propietarios; conservar información del proceso.",
+          "6.2: fijar objetivos coherentes con la política, medibles cuando sea practicable, documentados, comunicados, supervisados y actualizados. Definir acciones, recursos, responsables, plazos y evaluación de resultados.",
+          "6.3: realizar de manera planificada los cambios necesarios en el PIMS."
+        ],
+        "example": "Ante un nuevo uso de datos, evaluar el impacto sobre las personas, asignar un propietario del riesgo y aprobar un plan con controles y riesgo residual."
+      },
+      {
+        "id": 7,
+        "name": "Apoyo",
+        "pages": "10–11",
+        "pdfPage": 16,
+        "summary": "Proporciona los medios para sostener el PIMS: recursos, competencia, concienciación, comunicación e información documentada.",
+        "points": [
+          "7.1–7.2: proporcionar recursos y determinar las competencias necesarias. Asegurar competencia por educación, formación o experiencia; evaluar las acciones para adquirirla y disponer de evidencia documentada.",
+          "7.3: las personas deben conocer la política, su contribución a la eficacia del sistema y las consecuencias de incumplir sus requisitos.",
+          "7.4: determinar qué comunicar, cuándo, con quién y cómo, tanto interna como externamente.",
+          "7.5.1–7.5.2: incluir la documentación exigida y la necesaria para la eficacia del sistema. Identificarla, darle formato adecuado y revisarla y aprobarla al crearla o actualizarla.",
+          "7.5.3: asegurar disponibilidad y protección; controlar acceso, distribución, conservación, versiones, retención y disposición según corresponda. Identificar y controlar también la documentación externa necesaria."
+        ],
+        "example": "Una lista de asistencia acredita presencia en una capacitación; una evaluación práctica ayuda a demostrar la competencia adquirida."
+      },
+      {
+        "id": 8,
+        "name": "Operación",
+        "pages": "12",
+        "pdfPage": 18,
+        "summary": "Ejecuta lo planificado y conserva evidencia de los procesos, de las evaluaciones de riesgo y del tratamiento aplicado.",
+        "points": [
+          "8.1: establecer criterios para los procesos y controlarlos; disponer de documentación suficiente para confiar en que se ejecutaron según lo previsto. Controlar cambios planificados, revisar cambios imprevistos y mitigar efectos adversos.",
+          "8.1: controlar procesos, productos y servicios externos relevantes para el PIMS.",
+          "8.2: evaluar riesgos a intervalos planificados y cuando se propongan o produzcan cambios significativos, usando los criterios de 6.1.2 y conservando resultados.",
+          "8.3: implementar el plan de tratamiento de riesgos y conservar sus resultados."
+        ],
+        "example": "Antes de migrar un tratamiento a un nuevo proveedor, evaluar el cambio significativo y controlar el servicio externo."
+      },
+      {
+        "id": 9,
+        "name": "Evaluación del desempeño",
+        "pages": "12–14",
+        "pdfPage": 18,
+        "summary": "Comprueba el desempeño de privacidad y la eficacia del PIMS mediante medición, auditoría interna y revisión por la dirección.",
+        "points": [
+          "9.1: definir qué supervisar y medir, los métodos para obtener resultados válidos y cuándo medir, analizar y evaluar; disponer de evidencia de resultados.",
+          "9.2.1–9.2.2: auditar a intervalos planificados la conformidad y la implementación eficaz. El programa contempla frecuencia, métodos, responsabilidades, planificación e informes, considerando importancia de procesos y auditorías anteriores. Definir objetivos, criterios y alcance, asegurar objetividad e imparcialidad y comunicar resultados a los responsables pertinentes.",
+          "9.3.1–9.3.2: la alta dirección revisa el sistema a intervalos planificados. Considera acciones anteriores, cambios de contexto y necesidades de partes interesadas, tendencias de no conformidades, acciones correctivas, mediciones y auditorías, y oportunidades de mejora.",
+          "9.3.3: registrar las decisiones sobre mejoras y cambios necesarios en el PIMS y disponer de evidencia de la revisión."
+        ],
+        "example": "Un tablero de indicadores sirve como entrada a la revisión; también se necesitan decisiones sobre las mejoras o cambios que correspondan."
+      },
+      {
+        "id": 10,
+        "name": "Mejora",
+        "pages": "14",
+        "pdfPage": 20,
+        "summary": "Mantiene la idoneidad, adecuación y eficacia del PIMS y aborda las no conformidades para evitar su repetición.",
+        "points": [
+          "10.1: mejorar continuamente la idoneidad, adecuación y eficacia del sistema.",
+          "10.2: reaccionar ante la no conformidad, controlarla y corregirla cuando corresponda, y atender sus consecuencias.",
+          "10.2: revisar el problema, determinar sus causas y comprobar si existen o podrían ocurrir situaciones similares. Implementar las acciones necesarias, verificar su eficacia y modificar el PIMS cuando sea necesario.",
+          "Las acciones correctivas deben ser proporcionales a los efectos. Disponer de evidencia de la no conformidad, las acciones posteriores y sus resultados."
+        ],
+        "example": "Si se repite una entrega de datos al destinatario equivocado, corregir cada envío no basta: hay que abordar la causa y comprobar que las medidas funcionan."
+      }
+    ]
+  }
 };

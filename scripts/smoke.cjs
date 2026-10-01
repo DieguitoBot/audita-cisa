@@ -17,7 +17,7 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  async function finish(){await click('finish-confirm');await click('finish');await page.waitForSelector('.result-hero');}
  await page.goto(URL);
  assert.equal(await page.locator('.domain-card').count(),5);
- assert.equal(await page.evaluate(()=>window.STUDY_DATA.questions.length),120);
+ assert.equal(await page.evaluate(()=>window.STUDY_DATA.questions.length),150);
  await page.screenshot({path:path.join(ROOT,'preview-desktop.png'),fullPage:true});
  await click('ep1');await page.waitForSelector('.quiz-card');
  assert.equal(await page.locator('.option').count(),6);
@@ -78,6 +78,59 @@ const URL=process.env.AUDITA_TEST_URL||'http://127.0.0.1:8000';
  assert.deepEqual(errors,[]);
  // Offline direct-file use is supported: data.js does not depend on fetch.
  const local=await context.newPage();await local.goto('file://'+path.join(ROOT,'index.html'));assert.equal(await local.locator('.domain-card').count(),5);await local.locator('[data-action="ep1"]').click();await local.waitForSelector('.option');assert.equal(await local.locator('.option').count(),6);
+ // ISO guide, all ten clause pools, filtering, corrections and backup compatibility.
+ const isoContext=await browser.newContext({viewport:{width:1440,height:1080},reducedMotion:'reduce'});
+ const isoPage=await isoContext.newPage();isoPage.on('pageerror',e=>errors.push(e.message));
+ await isoPage.goto(URL+'/#iso');
+ assert.equal(await isoPage.locator('.clause-card').count(),10);
+ const pdf=await isoPage.request.get(URL+'/ISO%2027701-2025.pdf');
+ assert.equal(pdf.status(),200);assert.match(pdf.headers()['content-type'],/pdf/);
+ await isoPage.locator('[data-action="iso-jump"][data-id="10"]').click();
+ assert.equal(await isoPage.locator('#clause-10 details').getAttribute('open'),'');
+ assert.equal(await isoPage.evaluate(()=>location.hash),'#iso');
+ for(let c=1;c<=10;c++){
+   await isoPage.goto(URL+'/#iso');
+   await isoPage.locator(`[data-action="iso-practice"][data-id="${c}"]`).click();
+   if(await isoPage.locator('[data-action="confirm-new"]').count())await isoPage.locator('[data-action="confirm-new"]').click();
+   await isoPage.waitForSelector('.quiz-card');
+   const ids=await isoPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')).session.ids);
+   assert.ok(ids.length>=2);assert.ok(ids.every(id=>id.startsWith(`iso-${c}-`)));
+ }
+ const iq=await isoPage.evaluate(()=>{const s=JSON.parse(localStorage.getItem('audita.study.v1'));return window.STUDY_DATA.questions.find(q=>q.id===s.session.ids[0]);});
+ for(const a of iq.answers)await isoPage.locator(`[data-action="option"][data-value="${a}"]`).click();
+ await isoPage.locator('[data-action="check"]').click();await isoPage.waitForSelector('.feedback');
+ assert.equal(await isoPage.locator('.feedback.incorrect').count(),0);
+ assert.match(await isoPage.locator('.source-note a').getAttribute('href'),/#page=20$/);
+ await isoPage.locator('[data-action="bookmark"]').click();await isoPage.reload();await isoPage.waitForSelector('.feedback');
+ assert.equal(await isoPage.evaluate(id=>JSON.parse(localStorage.getItem('audita.study.v1')).records[id].attempts,iq.id),1);
+ await isoPage.goto(URL+'/#banco');await isoPage.locator('[data-action="filter"][data-id="iso"]').click();
+ assert.equal(await isoPage.locator('.bank-card').count(),30);
+ await isoPage.locator('#domain-filter').selectOption('c6');assert.equal(await isoPage.locator('.bank-card').count(),5);
+ await isoPage.locator('#search').fill('declaración');assert.equal(await isoPage.locator('.bank-card').count(),1);
+ await isoPage.goto(URL+'/#iso');assert.equal(await isoPage.locator('.iso-progress [role="progressbar"]').getAttribute('aria-valuenow'),'1');
+ await isoPage.locator('[data-action="configure"]').click();assert.equal(await isoPage.locator('#exam-source').inputValue(),'iso');
+ await isoPage.locator('#exam-source').selectOption('c1');assert.equal(await isoPage.locator('#exam-count').inputValue(),'all');
+ await isoPage.locator('#exam-time').selectOption('0');await isoPage.locator('#exam-form button[type="submit"]').click();
+ await isoPage.locator('[data-action="confirm-new"]').click();await isoPage.waitForSelector('.quiz-card');
+ assert.equal(await isoPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')).session.ids.length),2);
+ await isoPage.goto(URL+'/#iso');await isoPage.locator('[data-action="configure"]').click();
+ await isoPage.locator('#exam-source').selectOption('all');await isoPage.locator('#exam-count').selectOption('all');await isoPage.locator('#exam-time').selectOption('0');
+ await isoPage.locator('#exam-form button[type="submit"]').click();await isoPage.locator('[data-action="confirm-new"]').click();await isoPage.waitForSelector('.quiz-card');
+ assert.equal(await isoPage.evaluate(()=>JSON.parse(localStorage.getItem('audita.study.v1')).session.ids.length),150);
+ const fullBackup=await isoPage.evaluate(()=>localStorage.getItem('audita.study.v1'));
+ await isoPage.locator('[data-action="settings"]').click();
+ await isoPage.locator('#import-file').setInputFiles({name:'all.json',mimeType:'application/json',buffer:Buffer.from(fullBackup)});
+ await isoPage.waitForSelector('[data-action="confirm-import"]');await isoPage.locator('[data-action="confirm-import"]').click();
+ await isoPage.goto(URL+'/#iso');await isoPage.locator('#clause-6 summary').click();
+ await isoPage.screenshot({path:path.join(ROOT,'preview-iso-desktop.png'),fullPage:true});
+ for(const width of [390,320]){
+   await isoPage.setViewportSize({width,height:844});
+   assert.equal(await isoPage.locator('#mobile-nav a[href="#iso"]').isVisible(),true);
+   assert.equal(await isoPage.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ }
+ await isoPage.screenshot({path:path.join(ROOT,'preview-iso-mobile.png'),fullPage:true});
+ await local.goto('file://'+path.join(ROOT,'index.html')+'#iso');assert.equal(await local.locator('.clause-card').count(),10);
+ assert.deepEqual(errors,[]);
  await browser.close();
- console.log('PASS: 120 preguntas; corrección exacta; omisiones; claves EP1; mezcla de opciones; guardado tras recarga; repaso; guardadas; búsqueda y filtros; simulacro y revisión; entrega por tiempo; exportación/importación y validación; reinicio; 1440/390/320 px; uso directo sin servidor; sin errores de JavaScript.');
+ console.log('PASS: 150 preguntas; corrección exacta; omisiones; claves EP1; mezcla de opciones; guardado tras recarga; repaso; guardadas; búsqueda y filtros; simulacro y revisión; entrega por tiempo; exportación/importación y validación; reinicio; 1440/390/320 px; uso directo sin servidor; sin errores de JavaScript.');
 })().catch(e=>{console.error(e);process.exit(1);});
